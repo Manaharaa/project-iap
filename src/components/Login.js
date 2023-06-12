@@ -1,65 +1,117 @@
-import React from 'react';
-import '../styles/styles.css';
+import { useState } from "react";
+import styles from './toastStyle.css';
 
-export default function Login() {
+import Toast from "./Toast";
+import useBearStore from "./State";
+import { Link, useNavigate } from "react-router-dom";
+
+const Login = (props) => {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  // const [message, setMessage] = useState("");
+  const [toast, setToast] = useState({
+    showToast: false,
+    message: "",
+    type: "",
+  });
+
+  const onChange = (e) => {
+    setFormData((prev) => {
+      let helper = { ...prev };
+      helper[`${e.target.id}`] = e.target.value;
+      return helper;
+    });
+  };
+
+  const navigate = useNavigate();
+  const setIsUserValid = useBearStore((state) => state.setIsUserValid);
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log("FORM DATA ", formData);
+  
+    const users = [
+      { username: "test", password: "test1@23" },
+      { username: "john", password: "john123" },
+      { username: "jane", password: "jane456" },
+    ];
+  
+    const user = users.find((u) => u.username === formData.username);
+  
+    if (user && user.password === formData.password) {
+      setIsUserValid(true);
+      navigate("/dashboard");
+    }  else if  (formData.username.length < 4) {
+      // setMessage("username or email should atleast be 4 characters long.");
+      setToast({
+        showToast: true,
+        message: "username or email should atleast be 4 characters long.",
+        type: "danger",
+      });
+      return;
+    } else if (formData.password.length < 8) {
+      // setMessage("password should atleast be 8 characters long.");
+      setToast({
+        showToast: true,
+        message: "password should atleast be 8 characters long.",
+        type: "danger",
+      });
+      return;
+    }
+    else setToast({
+      showToast: true,
+      message: "invalid username or password.",
+      type: "danger",
+    });
+  
+  };
+
   return (
-    <div className="login-wrap">
-      <div className="login-html">
-        <input id="tab-1" type="radio" name="tab" className="sign-in" checked />
-        <label htmlFor="tab-1" className="tab">Sign In</label>
-        <input id="tab-2" type="radio" name="tab" className="sign-up" />
-        <label htmlFor="tab-2" className="tab">Sign Up</label>
-        <div className="login-form">
-          <div className="sign-in-htm">
-            <div className="group">
-              <label htmlFor="user" className="label">Username</label>
-              <input id="user" type="text" className="input" />
-            </div>
-            <div className="group">
-              <label htmlFor="pass" className="label">Password</label>
-              <input id="pass" type="password" className="input" data-type="password" />
-            </div>
-            <div className="group">
-              <input id="check" type="checkbox" className="check" checked />
-              <label htmlFor="check"><span className="icon"></span> Keep me Signed in</label>
-            </div>
-            <div className="group">
-              <input type="submit" className="button" value="Sign In" />
-            </div>
-            <div className="hr"></div>
-            <div className="foot-lnk">
-              <a href="#forgot">Forgot Password?</a>
-            </div>
-          </div>
-          <div className="sign-up-htm">
-            <div className="group">
-              <label htmlFor="user" className="label">Username</label>
-              <input id="user" type="text" className="input" />
-            </div>
-            <div className="group">
-              <label htmlFor="pass" className="label">Password</label>
-              <input id="pass" type="password" className="input" data-type="password" />
-            </div>
-            <div className="group">
-              <label htmlFor="pass" className="label">Repeat Password</label>
-              <input id="pass" type="password" className="input" data-type="password" />
-            </div>
-            <div className="group">
-              <label htmlFor="pass" className="label">Email Address</label>
-              <input id="pass" type="text" className="input" />
-            </div>
-            <div className="group">
-              <input type="submit" className="button" value="Sign Up" />
-            </div>
-            <div className="hr"></div>
-            <div className="foot-lnk">
-              <label htmlFor="tab-1">Already Member?</label>
-            </div>
-          </div>
+    <div className="main">
+      <form className="form" onSubmit={onSubmitHandler}>
+        <div className="user-image">
+          <div className="head" />
+          <div className="body"/>
         </div>
-      </div>
+        <p className="heading">Login</p>
+        <div className="inputs-div">
+          <input
+            onChange={onChange}
+            value={formData.username}
+            type={"text"}
+            id='username'
+            name='username'
+            placeholder='username or email'
+          />
+          <input
+            onChange={onChange}
+            value={formData.password}
+            type={"password"}
+            id='password'
+            name='password'
+            placeholder='password'
+          />
+        <button>submit</button>
+          {/* <div className={styles["err-msg-div"]}>{message}</div> */}
+        </div>
+        {/* <Link to="/login"><a href="#contact" className="w3-bar-item w3-button">Login</a></Link> */}
+        <p className="p-link">
+          New User?{" "}
+          <Link to="/dashboard">
+            sign up
+          </Link>
+        </p>
+      </form>
+      {toast.showToast ? (
+        <Toast setToast={setToast} message={toast.message} type={toast.type} />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
 
-
+export default Login;

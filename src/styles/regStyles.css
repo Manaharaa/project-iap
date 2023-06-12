@@ -1,0 +1,215 @@
+.formReg input[type=text], input[type=email], input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  #dob{
+    margin-left: 0px;
+    margin-right: 20px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    width: 300px;
+  }
+
+  .custom-datepicker {
+    font-size: 12px;
+    padding: 5px;
+    width: 150px;
+  }
+  
+  #next {
+    width: 10%;
+    background-color: #272343;
+    color: white;
+    padding: 14px 20px;
+    margin: 80px 0;
+   margin-inline-start: 1%;
+    /* margin-left: 80%; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /* .btn-group{
+    margin-left: 500px;
+  } */
+  /* #previous {
+    width: 10%;
+    background-color: #272343;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  } */
+  
+  .formReg input[type=submit]:hover {
+    background-color: #74b7d0;
+  }
+  
+  .formReg div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  #content {
+    margin-left: 100px;
+    margin-right: 100px;
+    
+  }
+
+  body {
+    background-color: #272343;
+    font-family: sans-serif;   
+    /* Inter */
+    font-size: 16px;
+  }
+
+    header h1{
+        text-align: center;
+        font-family: montserrat;
+        
+    }
+
+    h2{
+        font-family: montserrat;
+    }
+    
+    .side{
+        
+        margin-left: 5%;
+        padding: 0;
+    }
+
+    .hr1{
+       
+        background:  #ccc;
+          color: #ccc;
+          border-color:  #ccc;
+          height: 1px;
+          margin-left: 5%;
+          margin-right: 5%;
+    }
+
+    .hr2{
+        background: #272343;
+        color: #272343;
+        border-color: #272343; 
+        height: 1px;
+        margin-left: 5%;
+        margin-right: 5%;  
+    }
+
+    .box {
+        position: relative;
+        border-radius: 3px;
+        background: #E3F6F5;
+        border-top: 3px solid #d2d6de;
+        margin-bottom: 20px;
+        margin-left: 10%;
+        margin-right: 10%;
+        /* width: 100%; */
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  .clear{
+    clear: both;
+  }
+  
+  
+  .slide-toggle{
+    display: none;
+  }
+  
+  .slidemenu{
+    font-family: arial, sans-serif;
+    max-width: 600px;
+    margin: 50px auto;
+    overflow: hidden;
+  }
+  
+  .slidemenu label{
+    width: 20%;
+    text-align: center;
+    display: block;
+    float: left;
+    color: #272343;
+    opacity: 0.2;
+  
+  }
+  
+  .slidemenu label:hover{
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .slidemenu label span{
+    display: block;
+    padding: 10px;    
+  }
+  
+  .slidemenu label .icon{
+    font-size: 20px;
+    border: solid 2px #333;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin: 0 auto;
+    line-height: 50px;
+    border-radius: 50%;
+  }
+  
+  /*Bar Style*/
+  
+  .slider{
+    width: 100%;
+    height: 5px;
+    display: block;
+    background: #ccc;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .slider .bar{
+    width: 20%;
+    height: 5px;
+    background: #333;
+    border-radius: 5px;
+  }
+  
+  /*Animations*/
+  .slidemenu label, .slider .bar {
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+  }
+  
+  /*Toggle*/
+  
+  .slidemenu .slide-toggle:checked + label{
+    opacity: 1;
+  }
+  
+  
+  
+  .slidemenu #slide-item-1:checked ~ .slider .bar{ margin-left: 0; }
+  .slidemenu #slide-item-2:checked ~ .slider .bar{ margin-left: 20%; }
+  .slidemenu #slide-item-3:checked ~ .slider .bar{ margin-left: 40%; }
+  .slidemenu #slide-item-4:checked ~ .slider .bar{ margin-left: 60%; }
+  .slidemenu #slide-item-5:checked ~ .slider .bar{ margin-left: 80%; }
+  
+  
