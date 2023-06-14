@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/styles.css';
+import '../styles/homeHeader.css';
+import '../styles/homeSidebar.css';
+import '../styles/gallery.css';
 import 'w3-css/w3.css'; // Import the w3.css file
 
 
@@ -9,38 +12,118 @@ export default function HomePage() {
 
   return (
   
-    <body >
-    <div >
-    {/* Navbar */}
-    <div className="w3-top">
-      <div className="w3-bar w3-white w3-wide w3-padding w3-card">
-        <a id="homeA" href="#home" className="w3-bar-item w3-button"><b>CFTL</b> College of Fast Track Learning</a>
-        <div className="w3-right w3-hide-small">
-        <Link to="/registration"> <a href="#projects" className="w3-bar-item w3-button">Apply Now</a></Link>
-         <a href="#about" className="w3-bar-item w3-button">About</a>
-        <Link to="/login"><a href="#contact" className="w3-bar-item w3-button">Login</a></Link>
+    <body>
+    <div>
+    <header id="header">
+	<nav className="links" style={{ '--items': 5 }} >
+		<a href="#">Link 1</a>
+		<a href="#">Link 2</a>
+		<a href="#">Link 3</a>
+		<a href="#">Link 4</a>
+		<a href="#">Link 5</a>
+		<span className="line"></span>
+	</nav>
+</header>
+<React.Fragment>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+          rel="stylesheet"
+        />
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      </head>
+    
+        <input type="checkbox" id="active" />
+        <label htmlFor="active" className="menu-btn">
+          <span></span>
+        </label>
+        <label htmlFor="active" className="close"></label>
+        <div className="wrapper">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+            <li>
+              <a href="#">Gallery</a>
+            </li>
+            <li>
+              <a href="#">Feedback</a>
+            </li>
+          </ul>
+        </div>
+        <div className="content">
+          <div className="title">Fullscreen Overlay Navigation Bar</div>
+          
+        </div>
+    
+    </React.Fragment>
+    <section className="hero bg-no-repeat bg-cover bg-center h-screen text-center" style={{ marginTop: 0 }}>
+      <h1 className="text-grey-lightest font-hairline uppercase">MJ</h1>
+      <a href="#lyrics" className="bg-transparent hover:bg-pink-light text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
+        <button>Apply now</button>
+      </a>
+    </section>
+    </div>
+    <div>
+    <div className="demo-description">
+      <h1 className="demo-description__title">Full Course Dinner</h1>
+      <p className="demo-description__p">Resize the browser to see the &lt;picture&gt; effect.</p>
+    </div>
+
+    <div className="demo coursemeal">
+      {/* APPETIZERS */}
+      <div className="coursemeal__div">
+        <picture className="responsive-img">
+          <source media="(min-width: 992px)" srcSet="https://i.postimg.cc/jSTZmp8H/appetizer-img-1.jpg" />
+          <source media="(min-width: 767px)" srcSet="https://i.postimg.cc/1RTdCYhB/appetizer-img-2.jpg" />
+          <source srcSet="https://i.postimg.cc/TwnctQr7/appetizer-img-3.jpg" />
+          <img src="https://i.postimg.cc/jSTZmp8H/appetizer-img-1.jpg" alt="Appetizer" />
+        </picture>
+
+        <div className="coursemeal-info">
+          <a href="#" className="coursemeal-info__link">Appetizer</a>
+        </div>
+      </div>
+
+      {/* MAIN COURSE */}
+      <div className="coursemeal__div">
+        <picture className="responsive-img">
+          <source media="(min-width: 992px)" srcSet="https://i.postimg.cc/V6NCCRK0/maindish-img-1.jpg" />
+          <source media="(min-width: 767px)" srcSet="https://i.postimg.cc/9XYj186s/maindish-img-2.jpg" />
+          <source srcSet="https://i.postimg.cc/pLY8dt4q/maindish-img-3.jpg" />
+          <img src="https://i.postimg.cc/V6NCCRK0/maindish-img-1.jpg" alt="Main Course" />
+        </picture>
+
+        <div className="coursemeal-info">
+          <a href="#" className="coursemeal-info__link">Main Course</a>
+        </div>
+      </div>
+
+      {/* DESSERTS */}
+      <div className="coursemeal__div">
+        <picture className="responsive-img">
+          <source media="(min-width: 992px)" srcSet="https://i.postimg.cc/9FfLh6ZZ/dessert-img-1.jpg" />
+          <source media="(min-width: 767px)" srcSet="https://i.postimg.cc/FsRXBnKn/dessert-img-2.jpg" />
+          <source srcSet="https://i.postimg.cc/ZKcFCVFZ/dessert-img-3.jpg" />
+          <img src="https://i.postimg.cc/ZKcFCVFZ/dessert-img-1.jpg" alt="Desserts" />
+        </picture>
+
+        <div className="coursemeal-info">
+          <a href="#" className="coursemeal-info__link">Dessert</a>
         </div>
       </div>
     </div>
-
-    {/* Header */}
-    <header className="w3-display-container w3-content w3-wide" style={{ maxWidth: '1500px' }} id="home">
-      <img className="w3-image" src="https://www.schooleducationgateway.eu/files/jpg11/adobestock_277896487_edited.jpeg" alt="Architecture" width="1500" height="800" />
-      <div  className="w3-display-middle w3-margin-top w3-center"> 
-      {/* <div id='homeDiv'> */}
-        <h1 id='homeH1' className="w3-xxlarge w3-text-white">
-          <span className="w3-padding w3-black w3-opacity-min"><b>CFTL</b></span>{' '}
-          <span className="w3-hide-small w3-text-light-grey">College of Fast Track Learning</span>
-        </h1>
-        <Link to="/registration"><div class="center">
-<button type="submit" class="btn">
-    Apply Now</button> 
-</div></Link> </div>
-      {/* </div> */}
-    </header> 
-
-    
-  </div>
+    </div>
   </body>
   );
 };

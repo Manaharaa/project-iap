@@ -23,7 +23,7 @@
   } 
 
   
-button {
+/* button {
 	margin: auto;
 	border-radius: 20px;
 	background-color: #667292;
@@ -34,7 +34,7 @@ button {
 	font-family: cambria;
 	color: #bccad6;
 	border: none;
-}
+} */
 
 button:hover {
 	border: none;
