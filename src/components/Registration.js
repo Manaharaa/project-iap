@@ -1,7 +1,11 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
-import DatePicker from "react-datepicker";  
+import $ from 'jquery';
+
+
+// import DatePicker from "react-datepicker";  
   
 import "react-datepicker/dist/react-datepicker.css";  
 
@@ -20,11 +24,22 @@ export default function Registration() {
     setActiveContent(contentId);
   };
 
+  useEffect(() => {
+    $(document).ready(function() {
+      $('input[type="radio"]').click(function() {
+        var inputValue = $(this).attr("value");
+        var targetBox = $("." + inputValue);
+        $(".selectt").not(targetBox).hide();
+        $(targetBox).show();
+      });
+    });
+  }, []);
+
   function goToNextContent() {
-    if (!checkFormValidity()) {
-      alert('Please fill in all the required fields.');
-      return;
-    }
+    // if (!checkFormValidity()) {
+    //   alert('Please fill in all the required fields.');
+    //   return;
+    // }
     
     const currentIndex = contentOrder.indexOf(activeContent);
     if (currentIndex < contentOrder.length - 1) {
@@ -34,10 +49,10 @@ export default function Registration() {
   }
 
   function goToPreviousContent() {
-    if (!checkFormValidity()) {
-      alert('Please fill in all the required fields.');
-      return;
-    }
+    // if (!checkFormValidity()) {
+    //   alert('Please fill in all the required fields.');
+    //   return;
+    // }
     
     const currentIndex = contentOrder.indexOf(activeContent);
     if (currentIndex < contentOrder.length - 1) {
@@ -62,6 +77,7 @@ export default function Registration() {
 
   }
 
+ 
   
   
   
@@ -242,12 +258,38 @@ export default function Registration() {
           <h1>Parent information</h1>
           
           <form className ="formReg" action="/action_page.php">
+
+{/* /*geeks*/ }
+<label>Are you an</label>
+        <div style={{ marginBottom: '50px' }}>
+            <label style={{ marginLeft: '10px' }}>
+                <input style={{ marginLeft: '30px' }} type="radio" name="colorRadio" 
+                       value="C"/>Existing Parent</label>
+            <label style={{ marginLeft: '10px' }}>
+                <input  style={{ marginLeft: '30px' }} type="radio" name="colorRadio" 
+                       value="Cplus"/>New Parent</label>
+           
+        </div>
+
+        <div style={{ backgroundColor: '#E3F6F5', marginLeft:'10px' }} class="C selectt">
+        <form className ="formReg" action="/action_page.php">
+
+        <label htmlFor="fname">Full Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." /> </form>
+        {/* <div style={{ backgroundColor: '#E3F6F5' }} className="btn-group">
+<input id='next' type="submit" value="Previous" onClick={goToPreviousContent} />
+<input id='next' type="submit" value="Next" onClick={goToNextContent} /> 
+        </div> */}
+        </div>
+
+        <div style={{ backgroundColor: '#E3F6F5' , marginLeft:'10px' }} class="Cplus selectt"> 
+        <form className ="formReg" action="/action_page.php">
+   
         <label htmlFor="fname">Full Name</label>
         <input type="text" id="fname" name="firstname" placeholder="Your name.." />
 
         <label htmlFor="lname">Address</label>
         <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
-
         <label htmlFor="country">Occupation</label>
         <select id="country" name="country">
           <option value="australia">Doctor</option>
@@ -264,24 +306,7 @@ export default function Registration() {
     <input style={{ marginLeft: '30px' }} type="radio" id="other" name="gender" value="other" />
     <label style={{ marginLeft: '10px' }} htmlFor="other">Gurdian</label>
   </div>
-  <label htmlFor="fname">Full Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name.." />
 
-        <label htmlFor="fname">Address</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name.." />
-
-
-       
-        <label>Gender</label>
-  <div>
-    <input type="radio" id="male" name="gender" value="male" required/>
-    <label style={{ marginLeft: '10px' }} htmlFor="male">Male</label>
-    <input style={{ marginLeft: '30px' }} type="radio" id="female" name="gender" value="female" />
-    <label style={{ marginLeft: '10px' }} htmlFor="female">Female</label>
-    <input style={{ marginLeft: '30px' }} type="radio" id="other" name="gender" value="other" />
-    <label style={{ marginLeft: '10px' }} htmlFor="other">Other</label>
-  </div>
- 
   <label>Language Proficiency</label>
   <div>
     <input type="checkbox" id="male" name="gender" value="male" />
@@ -291,9 +316,31 @@ export default function Registration() {
     <input style={{ marginLeft: '30px' }} type="checkbox" id="other" name="gender" value="other" />
     <label style={{ marginLeft: '10px' }} htmlFor="other">Tamil</label>
   </div>
-</form>
 
-        <input id='next' type="submit" value="Next" onClick={goToNextContent} />
+  <label>Gender</label>
+  <div>
+    <input type="radio" id="male" name="gender" value="male" required/>
+    <label style={{ marginLeft: '10px' }} htmlFor="male">Male</label>
+    <input style={{ marginLeft: '30px' }} type="radio" id="female" name="gender" value="female" />
+    <label style={{ marginLeft: '10px' }} htmlFor="female">Female</label>
+    <input style={{ marginLeft: '30px' }} type="radio" id="other" name="gender" value="other" />
+    <label style={{ marginLeft: '10px' }} htmlFor="other">Other</label>
+  </div> </form>
+ 
+        {/* <div style={{ backgroundColor: '#E3F6F5' }} className="btn-group">
+<input style={{ margin: '40px 0' }}  id='next' type="submit" value="Previous" onClick={goToPreviousContent} />  
+<input id='next' type="submit" value="Next" onClick={goToNextContent} /> 
+        </div> */}
+</div>
+       
+        {/* <div className="clear"></div> */}
+  
+</form>
+ <div style={{ backgroundColor: '#E3F6F5' }} className="btn-group">
+<input id='next' type="submit" value="Previous" onClick={goToPreviousContent} />
+<input id='next' type="submit" value="Next" onClick={goToNextContent} /> 
+        </div>
+
       
         </div>
 
@@ -314,7 +361,10 @@ export default function Registration() {
     
         
       </form>
-      <input id='next' type="submit" value="Next" onClick={goToNextContent} />
+      <div className="btn-group">
+<input id='next' type="submit" value="Previous" onClick={goToPreviousContent} />
+<input id='next' type="submit" value="Next" onClick={goToNextContent} /> 
+        </div>
       
         </div>
 
@@ -331,11 +381,18 @@ export default function Registration() {
 
         <label htmlFor="lname">Email</label>
         <input type="email" id="lname" name="lastname" placeholder="Your last name.." />
-
-    
-        <Link to="/homepage"> <input id='next' type="submit" onClick={onSubmitHandler} value="Submit" /></Link>
+       
       </form>
+      <div className="btn-group">
+<input id='next' type="submit" value="Previous" onClick={goToPreviousContent} />
+<Link to="/homepage"><input id='next' type="submit" value="Submit"  /> </Link> 
         </div>
+
+      
+
+        </div>
+
+
       </div>
     </div>
     </div>
