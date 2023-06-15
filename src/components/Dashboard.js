@@ -1,49 +1,55 @@
 import React from 'react';
+import '../styles/dashboard.scss';
 
-export default function Dashboard() {
+const Navbar = () => {
   return (
-    <React.Fragment>
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-          rel="stylesheet"
-        />
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-      </head>
-      <body>
-        <input type="checkbox" id="active" />
-        <label htmlFor="active" className="menu-btn">
-          <span></span>
-        </label>
-        <label htmlFor="active" className="close"></label>
-        <div className="wrapper">
-          <ul>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Services</a>
-            </li>
-            <li>
-              <a href="#">Gallery</a>
-            </li>
-            <li>
-              <a href="#">Feedback</a>
-            </li>
-          </ul>
-        </div>
-        <div className="content">
-          <div className="title">Fullscreen Overlay Navigation Bar</div>
-          <p>(Hamburger Menu-2)</p>
-        </div>
-      </body>
-    </React.Fragment>
+    <div data-component="navbar">
+      <nav className="navbar p-0 fixed-top">
+        <button className="navbar-toggler navbar-toggler-left rounded-0 border-0" type="button" data-toggle="collapse" data-target="#megamenu-dropdown" aria-controls="megamenu-dropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <i className="fa fa-bars"></i><span className="ml-3">Advanced</span>
+        </button>
+        {/* Rest of the navbar content */}
+      </nav>
+    </div>
   );
 };
+
+const Megamenu = () => {
+  return (
+    <div className="megamenu">
+      <div className="collapse navbar-collapse" id="megamenu-dropdown">
+        <div className="megamenu-links">
+          {/* Megamenu content */}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Sidebar = () => {
+  return (
+    <div data-component="sidebar">
+      <div className="sidebar">
+        <ul className="list-group flex-column d-inline-block first-menu">
+          <li className="list-group-item pl-3 py-2">
+            <a href="#"><i className="fa fa-user-o" aria-hidden="true"><span className="ml-2 align-middle">Reporting</span></i></a>
+            {/* Sidebar submenu */}
+          </li>
+          {/* Rest of the sidebar content */}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+const Apps = () => {
+  return (
+    <div>
+      <Navbar />
+      <Megamenu />
+      <Sidebar />
+    </div>
+  );
+};
+
+export default Apps;

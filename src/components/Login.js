@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from './toastStyle.css';
+import '../styles/styles.css';
 
 import Toast from "./Toast";
 import useBearStore from "./State";
@@ -70,8 +71,8 @@ const Login = (props) => {
   };
 
   return (
-    <div className="main">
-      <form className="form" onSubmit={onSubmitHandler}>
+    <div id = "loginDiv" style={{ backgroundColor: '#E3F6F5' }} className="main">
+      <form className="form" onSubmit={onSubmitHandler} style={{ marginLeft: '60%', backgroundColor: '#E3F6F5' }}> 
         <div className="user-image">
           <div className="head" />
           <div className="body"/>
@@ -92,19 +93,19 @@ const Login = (props) => {
             type={"password"}
             id='password'
             name='password'
-            placeholder='password'
           />
-        <button>submit</button>
+        <button id = "buttonLogin" style={{ backgroundColor: 'red', border: '1px solid #146C94' }} >submit</button>
           {/* <div className={styles["err-msg-div"]}>{message}</div> */}
         </div>
         {/* <Link to="/login"><a href="#contact" className="w3-bar-item w3-button">Login</a></Link> */}
         <p className="p-link">
-          New User?{" "}
+          Forgot password? {" "}
           <Link to="/dashboard">
             sign up
           </Link>
         </p>
       </form>
+     
       {toast.showToast ? (
         <Toast setToast={setToast} message={toast.message} type={toast.type} />
       ) : (

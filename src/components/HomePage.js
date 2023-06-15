@@ -13,10 +13,10 @@ export default function HomePage() {
   return (
   
     <body>
-    <div>
+    <div className='headBar'>
     <header id="header">
 	<nav className="links" style={{ '--items': 5 }} >
-		<a href="#">Link 1</a>
+		<a href="#gallery">Gallery</a>
 		<a href="#">Link 2</a>
 		<a href="#">Link 3</a>
 		<a href="#">Link 4</a>
@@ -25,7 +25,7 @@ export default function HomePage() {
 	</nav>
 </header>
 <React.Fragment>
-      <head>
+      <head className='sideBar'>
         <link
           href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
           rel="stylesheet"
@@ -44,15 +44,15 @@ export default function HomePage() {
         <label htmlFor="active" className="close"></label>
         <div className="wrapper">
           <ul>
-            <li>
+          <Link to="/login"><li>
               <a href="#">Home</a>
-            </li>
-            <li>
+            </li></Link>
+            <Link to="/LoginPage">  <li>
               <a href="#">About</a>
-            </li>
-            <li>
+            </li></Link>
+            <Link to="/dashboardApp"><li>
               <a href="#">Services</a>
-            </li>
+            </li></Link>
             <li>
               <a href="#">Gallery</a>
             </li>
@@ -65,16 +65,24 @@ export default function HomePage() {
           <div className="title">Fullscreen Overlay Navigation Bar</div>
           
         </div>
+        
     
     </React.Fragment>
-    <section className="hero bg-no-repeat bg-cover bg-center h-screen text-center" style={{ marginTop: 0 }}>
-      <h1 className="text-grey-lightest font-hairline uppercase">MJ</h1>
+    <section className="hero bg-no-repeat bg-cover bg-center h-screen text-center" style={{ marginTop: 0 , paddingTop: '250px'}}>
+      <h1 className="text-grey-lightest font-hairline uppercase">COLLEGE OF FAST TRACK LEARNING</h1>
       <a href="#lyrics" className="bg-transparent hover:bg-pink-light text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
-        <button>Apply now</button>
+      <Link to="/registration"> <button style={{  marginLeft: '50%',
+    marginRight: '50px',
+    width: '118.2px',
+    height: '83.2px',
+    paddingRight: '20px',
+    marginTop: '0px',
+    marginBottom: '200px',
+    fontSize: '20px'}}>Apply now</button> </Link> 
       </a>
     </section>
     </div>
-    <div>
+    <div id = "gallery" className='gallery'>
     <div className="demo-description">
       <h1 className="demo-description__title">Full Course Dinner</h1>
       <p className="demo-description__p">Resize the browser to see the &lt;picture&gt; effect.</p>

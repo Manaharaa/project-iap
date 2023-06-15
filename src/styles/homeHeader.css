@@ -2,23 +2,23 @@
 
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato:300,400,700');
 
-html, body, h1, h2, h3, h4, h5, h6, p, li, ol, ul, pre {
+html, .headBar, h1, h2, h3, h4, h5, h6, p, li, ol, ul, pre {
 	margin: 0;
 	padding: 0;
 }
-html, body { min-height: 100%; }
+html, .headBar { min-height: 100%; }
 
-body {
-	background-color: #345;
-	background-image: linear-gradient(to bottom, #0009, transparent);
+.headBar{
+	background-color: #146C94;
+	background-image: linear-gradient(to bottom, #146C94, transparent);
 	color: #eee;
 	font-family: 'Lato', sans-serif;
 	font-size: 62.5%;
-	padding: 0 20px;
+	/* padding: 0 20px; */
 	box-sizing: border-box;
 }
 code {
-	background: #fff1;
+	background: #146C94;
 	font-family: 'Inconsolata', monospace;
 	padding: .2em .4em;
 }
@@ -27,7 +27,7 @@ code {
 	background-color: #fff;
 	border-radius: 8px;
 	box-sizing: border-box;
-	color: #666;
+	color: #146C94;
 	font-size: 1.6em;
 	line-height: 1.4em;
 	margin: 20px auto;
@@ -72,7 +72,7 @@ code {
 
 /* Appearance */
 .links {
-	background-color: #123;
+	background-color: #F6F1F1;
 	background-image: linear-gradient(to bottom, #0003, transparent);
 	border-bottom: 1px solid #0003;
 	box-shadow: 0 0 32px #0003;
@@ -80,11 +80,12 @@ code {
 	font-weight: 300;
 }
 .links > a {
-	color: #9ab;
+	color: #19A7CE;
 	padding: .75em;
 	text-align: center;
 	text-decoration: none;
 	transition: all .5s;
+	font-weight: bold;
 }
 .links > a:hover {
 	background: #ffffff06;
@@ -137,23 +138,31 @@ code {
 
 .hero {
     margin-top: 70px;
-    background: linear-gradient(rgba(250, 126, 168, 0.55), rgba(250, 126, 168, 0.55)),
-                  rgba(250,126,168,0.55)
-       url("https://s1.ticketm.net/dam/a/868/c9e2b7f3-9fea-406d-93a9-366939014868_1229291_TABLET_LANDSCAPE_LARGE_16_9.jpg");
+    background: linear-gradient(rgba(6, 64, 94, 0.55), rgba(24, 62, 74, 0.55)),
+                  rgba(9, 45, 63, 0.55)
+       url("https://s3.eu-west-2.amazonaws.com/files.bliss.org.uk/images/_1200x630_crop_center-center_82_none/iStock-1160932315.jpg?mtime=1658850935");
       
   
       padding-top:200px;
+	  /* height: 500px; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* position: relative; */
   }
   h1{
-    color: #16213E;
+    color: #146C94;
   }
   
   
   .hero h1 {
-    font-size: 200px;
-    font-family: 'Poiret One', cursive;
+    font-size: 100px;
+    font-family: 'Lato', sans-serif;
     text-align: center;
-  }
+	font-weight: bold;
+	color: #F6F1F1;
+}
+  
   * {
     margin: 0;
     padding: 0;
